@@ -1,0 +1,14 @@
+---
+- name: Pull docker image
+  hosts: all
+  tasks:
+          - name: Pull image from dockerhub
+            docker_image:
+                  name: amitha1234/savvy_saver 
+                  source: pull
+
+          - name: Pulled image 
+            shell: 'echo "Finished pulling image"'
+
+          - name: Running the container
+            shell: docker run -it -d amitha1234/savvy_saver /bin/bash
